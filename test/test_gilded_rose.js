@@ -68,14 +68,6 @@ describe("Gilded Rose", function () {
 });
 
 describe("Gilded Rose", function () {
-  it("should update Aged Brie quality +1 if it has negative sell in and quality under 50", function () {
-    const gildedRose = new Shop([new Item("Aged Brie", -1, 49)]);
-    const items = gildedRose.updateQuality();
-    expect(items[0].quality).to.equal(50);
-  });
-});
-
-describe("Gilded Rose", function () {
   it("should have an empty shop if initialised without items", function () {
     const gildedRose = new Shop();
     const items = gildedRose.updateQuality();
