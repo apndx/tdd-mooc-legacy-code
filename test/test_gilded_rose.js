@@ -66,3 +66,43 @@ describe("Gilded Rose", function () {
     expect(items[0].quality).to.equal(50);
   });
 });
+
+describe("Gilded Rose", function () {
+  it("should update Aged Brie quality +1 if it has negative sell in and quality under 50", function () {
+    const gildedRose = new Shop([new Item("Aged Brie", -1, 49)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(50);
+  });
+});
+
+describe("Gilded Rose", function () {
+  it("should have an empty shop if initialised without items", function () {
+    const gildedRose = new Shop();
+    const items = gildedRose.updateQuality();
+    expect(items.length).to.equal(0);
+  });
+});
+
+describe("Gilded Rose", function () {
+  it("should update Backstage passes to a TAFKAL80ETC concert quality +1 three times if it has sell in under 6 and quality under 50", function () {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 3, 3)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(6);
+  });
+});
+
+describe("Gilded Rose", function () {
+  it("should update non-brie, non-pass that has negative sell in and positive quality with -1 quality two times", function () {
+    const gildedRose = new Shop([new Item("Wax", -1, 3)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(1);
+  });
+});
+
+describe("Gilded Rose", function () {
+  it("should update Aged Brie with negative sell in and quality under 47 two times", function () {
+    const gildedRose = new Shop([new Item("Aged Brie", -1, 47)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(49);
+  });
+});
