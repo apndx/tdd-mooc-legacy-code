@@ -98,3 +98,19 @@ describe("Gilded Rose", function () {
     expect(items[0].quality).to.equal(49);
   });
 });
+
+describe("Gilded Rose", function () {
+  it("should degrade Conjured items in Quality twice as fast as normal items when sell in is positive", function () {
+    const gildedRose = new Shop([new Item("Conjured", 5, 20)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(18);
+  });
+});
+
+describe("Gilded Rose", function () {
+  it("should degrade Conjured items in Quality twice as fast as normal items when sell in is negative", function () {
+    const gildedRose = new Shop([new Item("Conjured", -1, 20)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(16);
+  });
+});

@@ -18,6 +18,9 @@ class Shop {
       } else {
         this.doDailyQualityIncrease(i);
       }
+      if (this.items[i].name == "Conjured") {
+        this.doDailyQualityDecrease(i);
+      }
       if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
         this.doDailySellInDecrease(i);
       }
@@ -50,6 +53,9 @@ class Shop {
   doubleQualityDecrease(i) {
     if (this.items[i].quality > 0) {
       if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
+        this.items[i].quality = this.items[i].quality - 1;
+      }
+      if (this.items[i].name == "Conjured") {
         this.items[i].quality = this.items[i].quality - 1;
       }
     }
